@@ -23,6 +23,21 @@ static Node *buildExample(void) {
   return root;
 }
 
+static Node* build123(void){
+    Node* root = newNode(2);
+    root->left = newNode(1);
+    root->right = newNode(3);
+    return root;
+}
+
+static Node* 2build123(void){
+    Node* root = NULL;
+    root = insert(root, 2);
+    root = insert(root, 1);
+    root = insert(root, 3);
+    return root;
+}
+
 int main(void) {
   Node *root = buildExample();
 
