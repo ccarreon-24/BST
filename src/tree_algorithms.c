@@ -60,6 +60,7 @@ void printa(int path[], int pathLen){
     while(pathLen--){
         printf("%d ", path[i++]);
     }
+    printf("\n");
 }
 
 static void printPathsRecur(const Node* root, int path[], int pathLen){

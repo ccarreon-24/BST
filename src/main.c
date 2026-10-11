@@ -94,6 +94,100 @@ static void Comparaciones(void){
     freeTree(bn);
 }
 
+void GeneralTrees(void){
+    Node* vo = NULL;
+    Node* one = newNode(1);
+
+    Node* t1 = newNode(2);
+    t1 = insert(t1, 1);
+
+    Node* t2 = newNode(7);
+    t2 = insert(t2, 9);
+
+
+    Node* r1 = newNode(1);
+    r1 = insert(r1, 2);
+    r1 = insert(r1, 3);
+    r1 = insert(r1, 4);
+    r1 = insert(r1, 5);
+
+    Node* r2 = newNode(5);
+    r2 = insert(r2, 4);
+    r2 = insert(r2, 3);
+    r2 = insert(r2, 2);
+    r2 = insert(r2, 1);
+
+    Node* r3 = newNode(3);
+    r3 = insert(r3, 2);
+    r3 = insert(r3, 5);
+    r3 = insert(r3, 1);
+    r3 = insert(r3, 4);
+
+    Node* n1 = newNode(10);
+    n1 = insert(n1, 10);
+    n1 = insert(n1, 27);
+    n1 = insert(n1, 2);
+    n1 = insert(n1, 29);
+    n1 = insert(n1, 5);
+
+    Node* balanced = newNode(3);
+    balanced = insert(balanced, 2);
+    balanced = insert(balanced, 5);
+    balanced = insert(balanced, 1);
+    balanced = insert(balanced, 6);
+    balanced = insert(balanced, 7);
+    balanced = insert(balanced, 4);
+
+    printf("Arboles generales: \n");
+    printf("Nodos y profundidad(n1): %zu %d \n", treeSize(n1), maxDepth(n1));
+    printf("Inorder, postorder: ");
+    printTree(r3);
+    printf("\n");
+    printPostorder(r3);
+    printf("\n");
+
+    printf("Suma 6 en balanced: %d\n",hasPathSum(balanced, 6));
+    printf("Caminos hasta las hojas en balanced: \n");
+    printPaths(balanced);
+    printf("\n");
+    printf("Arbol degenerado izquierdo r2: ");
+    printTree(r2);
+    printf("\n");
+    mirror(r2);
+    printf("Mirror a r2: ");
+    printTree(r2);
+    printf("\n");
+    printf("Comparando arboles degenerados r1, r2: %d\n", sameTree(r1, r2));
+
+    mirror(r2);
+    
+    printf("Aplicar mirror 2 veces al balanceado \n");
+    printf("Arbol balanceado: ");
+    printTree(balanced);
+    printf("\n");
+    mirror(balanced);
+    printf("Mirror 1 vez: ");
+    printTree(balanced);
+    printf("\n");
+    printf("Mirror 2 vez: ");
+    mirror(balanced);
+    printTree(balanced);
+    printf("\n");
+
+
+
+    freeTree(vo);
+    freeTree(one);
+    freeTree(t1);
+    freeTree(t2);
+    freeTree(r1);
+    freeTree(r2);
+    freeTree(r3);
+    freeTree(n1);
+    freeTree(balanced);
+}
+
+
 
 static Node* build123(void){
     Node* root = newNode(2);
@@ -143,6 +237,7 @@ int main(void) {
    
 
    Comparaciones();
+   GeneralTrees();
   freeTree(root);
   return EXIT_SUCCESS;
 }
