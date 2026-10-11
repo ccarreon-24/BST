@@ -88,13 +88,23 @@ void mirror(Node *root) {
 
 }
 
+
+
 int sameTree(const Node *a, const Node *b) {
-  (void)a;
-  (void)b;
-  return 0;
+    if(a == NULL && b == NULL) return 1;
+    if(a == NULL || b == NULL) return 0;
+
+    if(a->data == b->data)
+        return sameTree(a->left, b->left) && sameTree(a->right, b->right);
+
+    return 0;
 }
 
 int isBST(const Node *root) {
   (void)root;
   return 0;
 }
+
+
+
+
