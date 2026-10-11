@@ -76,7 +76,16 @@ void printPaths(const Node *root) {
 }
 
 void mirror(Node *root) {
-  (void)root;
+    if(root == NULL) return;
+
+    Node* curr = root->left;
+    
+    root->left = root->right;
+    root->right = curr; 
+
+    mirror(root->left);
+    mirror(root->right);
+
 }
 
 int sameTree(const Node *a, const Node *b) {
