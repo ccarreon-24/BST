@@ -55,6 +55,13 @@ int hasPathSum(const Node *root, int sum) {
     return hasPathSum(root->left, sum - root->data) || hasPathSum(root->right, sum - root->data);
 }
 
+void printa(int path[], int pathLen){
+    int i = 0;
+    while(pathLen--){
+        printf("%d ", path[i++]);
+    }
+}
+
 static void printPathsRecur(const Node* root, int path[], int pathLen){
     if(root == NULL) return ;
 
@@ -70,8 +77,7 @@ static void printPathsRecur(const Node* root, int path[], int pathLen){
 }
 
 void printPaths(const Node *root) {
-    int path[length(root)];
-    int pathLen = 0;
+    int path[10];
     printPathsRecur(root, path, 0);
 }
 
