@@ -56,13 +56,30 @@ static void Comparaciones(void){
     eq2 = insert(eq2, 1);
     eq2 = insert(eq2, 5);
     eq2 = insert(eq2, 23);
+    
+    Node* bs = insert(NULL, 12);
+    bs = insert(bs, 10);
+    bs = insert(bs, 20);
+    bs = insert(bs, 21);
+
+    Node* bn = insert(NULL, 10);
+    bn->right = newNode(12);
+    bn->right->right = newNode(20);
+    bn->right->right->right = newNode(21);
 
     printf("Ambos vacios: %d\n", sameTree(vacio1, vacio2));
     printf("Uno vacio el otro no: %d\n", sameTree(p1, vacio1));
     printf("Mismas claves diferentes estructuras: %d\n", sameTree(tree1, tree2));
     printf("Misma estructura pero diferentes datos : %d\n", sameTree(comp1, comp2));
     printf("Arboles iguales: %d\n", sameTree(eq1, eq2));
+    
+    printf("Recorrido inorder: ");
+    printTree(bs);
+    printf("\n");
+    printTree(bn);
+    printf("\n");
 
+    printf("comparando: %d\n", sameTree(bs, bn));
     freeTree(vacio1);
     freeTree(vacio2);
     freeTree(p1);
@@ -72,6 +89,9 @@ static void Comparaciones(void){
     freeTree(comp2);
     freeTree(eq1);
     freeTree(eq2);
+
+    freeTree(bs);
+    freeTree(bn);
 }
 
 

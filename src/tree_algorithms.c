@@ -89,7 +89,7 @@ void mirror(Node *root) {
     root->left = root->right;
     root->right = curr; 
 
-    mirror(root->left);
+    mirror(root->left); 
     mirror(root->right);
 
 }
@@ -106,9 +106,16 @@ int sameTree(const Node *a, const Node *b) {
     return 0;
 }
 
+int interval(const Node* root, int min, int max){
+    if(root == NULL) return 1;
+
+    if(root->data <= min || root->data > max) return 0;
+
+    return interval(root->left, min, root->data) && interval(root->right, root->data, max);
+}
+
 int isBST(const Node *root) {
-  (void)root;
-  return 0;
+    return interval(root, 0, 100);
 }
 
 
